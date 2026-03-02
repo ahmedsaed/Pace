@@ -35,8 +35,10 @@ jobs:
       - name: Generate native Android project
         run: npx expo prebuild --platform android --no-install
 
-      - name: Disable new architecture to fix react-native-reanimated compatibility
-        run: echo "newArchEnabled=false" >> android/gradle.properties
+      - name: Configure gradle.properties for CI build
+        run: |
+          echo "newArchEnabled=false" >> android/gradle.properties
+          echo "bundleInDebug=true" >> android/gradle.properties
 
       - name: Make Gradlew executable
         run: chmod +x android/gradlew
