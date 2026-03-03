@@ -1,0 +1,19 @@
+name: Update
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  preview:
+    if: github.event_name == 'pull_request'
+    type: update
+    params:
+      branch: preview
+
+  production:
+    if: github.ref == 'refs/heads/main'
+    type: update
+    params:
+      branch: production
