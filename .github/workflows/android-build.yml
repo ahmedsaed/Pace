@@ -39,6 +39,7 @@ jobs:
         run: |
           echo "newArchEnabled=false" >> android/gradle.properties
           echo "bundleInDebug=true" >> android/gradle.properties
+          echo "devDisabledInDebug=true" >> android/gradle.properties
 
       - name: Make Gradlew executable
         run: chmod +x android/gradlew
